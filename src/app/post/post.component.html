@@ -1,0 +1,50 @@
+<mat-card class="post">
+  <div>
+    <img class="movie-picture" [src]="picture" alt="" />
+  </div>
+
+  <div class="post-container">
+    <mat-list>
+      <mat-list-item>
+        <img class="profile-pic" [src]="getProfilePic(user)" alt="" />
+        <p class="username">{{ user }}</p>
+        <p class="user-comment">{{ title }}</p>
+      </mat-list-item>
+    </mat-list>
+
+    <mat-list>
+      <mat-list-item>
+        <div class="post-content-likes">
+          <mat-icon *ngIf="!isLiked()" [title]="likesExb" (click)="clickLike()"
+            >favorite_border</mat-icon
+          >
+          <mat-icon *ngIf="isLiked()" [title]="likesExb" (click)="clickLike()"
+            >favorite</mat-icon
+          >
+          <span>{{ likes.length }}</span>
+        </div>
+        <div class="post-content-comments">
+          <mat-icon color="primary">chat</mat-icon>
+          <span>{{ comments.length }}</span>
+        </div>
+      </mat-list-item>
+    </mat-list>
+
+    <mat-list class="comments-container">
+      <mat-list-item
+        class="comment"
+        *ngFor="let comment of comments; let i = index"
+      >
+        <div>
+          <img class="comment-pic" [src]="getProfilePic(comment.user)" alt="" />
+        </div>
+        <div>
+          <p class="username">{{ comment.user }}</p>
+        </div>
+        <div>
+          <p class="user-comment">{{ comment.comment }}</p>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</mat-card>

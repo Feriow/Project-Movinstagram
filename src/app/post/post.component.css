@@ -1,0 +1,67 @@
+:host {
+  width: 100%;
+}
+
+.post {
+  margin: 1rem 1rem 0 1rem;
+  display: flex;
+}
+
+.movie-picture {
+  width: 100%;
+  max-width: 500px;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 1rem;
+  border: 1px solid gray;
+}
+
+.post-content-likes,
+.post-content-comments {
+  display: flex;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  align-items: center;
+}
+
+.post-content-likes:hover {
+  cursor: pointer;
+}
+
+.post-content-likes span,
+.post-content-comments span {
+  margin-left: 0.4rem;
+}
+
+.username {
+  margin-left: 0.5rem;
+  font-weight: bold;
+}
+
+.user-comment {
+  margin-left: 1rem;
+}
+
+.comment {
+  border-top: 1px solid lightgray;
+  width: 100%;
+}
+
+.profile-pic {
+  max-width: 2.5rem;
+  border-radius: 50%;
+}
+
+.comment-pic {
+  max-width: 1.5rem;
+  border-radius: 50%;
+  vertical-align: super;
+}
+
+.mat-list-item {
+  padding-top: 1rem !important;
+  height: auto !important;
+}

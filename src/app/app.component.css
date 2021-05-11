@@ -1,0 +1,142 @@
+p,
+h1 {
+  margin: 0;
+}
+
+.app {
+  margin: 1.5rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255, 80%);
+  padding: 0;
+  padding-bottom: 1rem;
+}
+
+.app-header {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.app-title {
+  text-align: center;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 0.5rem;
+  justify-content: space-evenly;
+}
+
+.user-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.user-data {
+  margin-left: 1rem;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.main-profile-pic {
+  max-width: 7rem;
+}
+
+.profile-pic {
+  max-width: 2.5rem;
+}
+
+.main-profile-pic,
+.profile-pic {
+  border-radius: 50%;
+}
+
+.change-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid lightgray;
+  padding: 0 3rem;
+  flex-grow: 1;
+  margin-left: 2rem;
+  width: 90%;
+  max-width: 500px;
+}
+
+.change-user > mat-card-title {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.change-user-profiles {
+  display: flex;
+  flex-direction: row;
+}
+
+.user-select {
+  display: flex;
+  margin: 0 1rem;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  min-width: 105px;
+}
+
+.user-select:hover {
+  background-color: lightgray;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.user-select:active {
+  background-color: rgb(160, 169, 179);
+}
+
+.post-content {
+  margin-top: 1rem;
+}
+
+@media only screen and (max-width: 860px) {
+  .user-info {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
+  .change-user {
+    margin: 1rem 0 0 0;
+    padding: 0;
+    max-width: 500px;
+  }
+
+  .user-select {
+    min-width: 95px;
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .user-select {
+    margin: 0.5rem 0;
+  }
+
+  .change-user-profiles {
+    flex-direction: column;
+  }
+
+  .change-user > mat-card-title {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}

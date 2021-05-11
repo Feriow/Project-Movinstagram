@@ -1,0 +1,51 @@
+<mat-card class="app">
+  <mat-card class="app-header">
+    <mat-card-title>
+      <h1 class="app-title">Movinstagram</h1>
+    </mat-card-title>
+    <mat-card-content class="user-info">
+      <div class="user-profile">
+        <div>
+          <img class="main-profile-pic" [src]="getProfilePic('superman')" />
+        </div>
+        <div class="user-data">
+          <p class="username">superman</p>
+          <p>{{ posts.length }} posts</p>
+          <p>{{ likes.length }} curtidas</p>
+          <p>{{ comments.length }} comentários</p>
+        </div>
+      </div>
+
+      <mat-card class="change-user">
+        <mat-card-title>
+          <p>Visualizar timeline com:</p>
+        </mat-card-title>
+
+        <mat-card-content class="change-user-profiles">
+          <div
+            class="user-select"
+            *ngFor="let user of users; let i = index"
+            (click)="changeUser(user)"
+          >
+            <img class="profile-pic" [src]="getProfilePic(user)" />
+            <div>
+              <p>{{ user }}</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>
+
+  <app-post
+    *ngFor="let post of posts; let i = index"
+    [title]="post.title"
+    [user]="post.user"
+    [picture]="post.picture"
+    [postId]="post.Id"
+    [currentUser]="mainUser"
+    [comments]="getPostComments(post.id)"
+    [likes]="getPostLikes(post.id)"
+  >
+  </app-post>
+</mat-card>
