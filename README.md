@@ -16,7 +16,7 @@ This project:
 
 # Screenshot
 
-![](C:\Desktop\CURSOS\IGTI\Bootcamp Front End\Projetos\Desafio Final\frontend\movinstagram\Movinstagram screenshot.jpg)
+![](https://github.com/Feriow/Project-Movinstagram/blob/main/Movinstagram%20screenshot.jpg)
 
 -----------------------------------------------------------------------
 
