@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
-This was the final project on IGTI's Front End Development bootcamp. The project requirements were to create the interface of an app where users post their reviews about movies and other users may comment and like those posts. 
+This was the final project for IGTI's Front End Development bootcamp. The project requirements were to create the interface of an app where users post their reviews about movies and other users may comment and like those posts. 
 
 The main objective was to create the app's interface loading superman's timeline with the provided backend, thus having a set of posts, comments and likes exhibited. Future upgrades may implement the like button and the comment feature, both with persistence.
 
