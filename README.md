@@ -14,9 +14,12 @@ This project:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Screenshot
+# Screenshots
+screenshot 1
+![](https://user-images.githubusercontent.com/79882701/118046271-76b08400-b34f-11eb-9b95-d81b5f0ef79e.png)
 
-![](https://github.com/Feriow/Project-Movinstagram/blob/main/Movinstagram%20screenshot.jpg)
+screenshot 2
+![](https://user-images.githubusercontent.com/79882701/118046263-757f5700-b34f-11eb-9377-6efe45f2b3b2.png)
 
 -----------------------------------------------------------------------
 
