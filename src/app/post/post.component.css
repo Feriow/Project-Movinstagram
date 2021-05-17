@@ -36,6 +36,10 @@
   margin-left: 0.4rem;
 }
 
+.heart {
+  color: red;
+}
+
 .username {
   margin-left: 0.5rem;
   font-weight: bold;

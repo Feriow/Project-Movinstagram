@@ -15,13 +15,16 @@
     <mat-list>
       <mat-list-item>
         <div class="post-content-likes">
-          <mat-icon *ngIf="!isLiked()" [title]="likesExb" (click)="clickLike()"
-            >favorite_border</mat-icon
+          <mat-icon
+            class="heart"
+            [title]="getLikesTitle()"
+            (click)="clickLike()"
           >
-          <mat-icon *ngIf="isLiked()" [title]="likesExb" (click)="clickLike()"
-            >favorite</mat-icon
-          >
-          <span>{{ likes.length }}</span>
+            {{ getIsLiked() }}
+          </mat-icon>
+          <span>{{
+            postLikes.length > 0 ? postLikes.length : likes.length
+          }}</span>
         </div>
         <div class="post-content-comments">
           <mat-icon color="primary">chat</mat-icon>

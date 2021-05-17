@@ -7,79 +7,81 @@ import { Like, Comment, MovinstagramService } from "../movinstagram.service";
   styleUrls: ["../post/post.component.css"],
 })
 export class PostComponent implements OnInit {
-  @Input() likes: Like[];
+  @Input() likes: Like[] = [];
   @Input() comments: Comment[];
   @Input() title: string;
   @Input() user: string;
   @Input() picture: string;
-  @Input() postId: string;
   @Input() currentUser: string;
-
+  @Input() postId: string;
+  isLiked: boolean;
+  postLikes = [];
   likesExb: String;
-  likesAposInput: Like[];
+
   constructor(private movServ: MovinstagramService) {}
 
   ngOnInit(): void {
     this.getLikesTitle();
   }
 
-  isLiked = () => {
-    if (this.likes.find((like) => like.user == this.currentUser)) return true;
-  };
-
-  clickLike = () => {
-    if (this.isLiked()) {
-      let pos = this.likes
-        .map(function (e) {
-          return e.user;
-        })
-        .indexOf(this.currentUser);
-
-      this.likes.splice(pos, 1);
-      this.likesAposInput = this.likes.sort();
-    }
-    this.getLikesTitle();
-  };
-
-  /*
-  checkLiked() {
-    let activeUser = this.currentUser;
-    if (this.likes.find((like) => like.user == activeUser)) {
-      this.isLiked = true;
-    } else {
-      this.isLiked = false;
-    }
-    return this.isLiked;
-  }
-  /*
-  like() {
-    let like: Like = {
-      id: "teste",
-      user: this.currentUser,
-      postId: this.postId,
-    };
-
-    if (!this.checkLiked("batman")) {
-      console.log("Batman curtiu");
-    } else {
-      console.log("batman não curtiu");
-    }
-  }
-*/
-  getProfilePic(user) {
-    return this.movServ.getProfilePic(user);
-  }
-
   getLikesTitle = () => {
-    this.likesAposInput = this.likes;
+    if (this.postLikes.length == 0) {
+      this.postLikes = this.likes;
+    }
     if (this.likesExb) {
       this.likesExb = "";
     }
     let likesUsers = [];
-    for (let like of this.likesAposInput) {
+    for (let like of this.postLikes) {
       likesUsers.push(like.user);
     }
     likesUsers.sort();
     this.likesExb = likesUsers.join("\n");
+    this.getIsLiked();
+    return this.likesExb;
   };
+
+  getIsLiked() {
+    if (this.postLikes.length > 0) {
+      this.isLiked = this.postLikes.find(
+        (like) => like.user === this.currentUser
+      )
+        ? true
+        : false;
+    } else {
+      this.isLiked = this.likes.find((like) => like.user === this.currentUser)
+        ? true
+        : false;
+    }
+
+    return this.isLiked ? "favorite" : "favorite_border";
+  }
+
+  clickLike = () => {
+    if (this.isLiked) {
+      let pos = this.postLikes
+        .map(function (e) {
+          return e.user;
+        })
+        .indexOf(this.currentUser);
+      if (pos !== -1) {
+        this.postLikes.splice(pos, 1);
+      }
+    } else {
+      let newLike = {
+        id: "123",
+        postId: this.postId,
+        user: this.currentUser,
+      };
+      this.postLikes.push(newLike);
+    }
+    this.postLikes = this.postLikes.sort((a, b) =>
+      a.user > b.user ? 1 : b.user > a.user ? -1 : 0
+    );
+    this.getLikesTitle();
+  };
+
+  getProfilePic(user) {
+    return this.movServ.getProfilePic(user);
+  }
 }

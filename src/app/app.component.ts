@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   comments: Comment[] = [];
   likes: Like[] = [];
   users: String[] = [];
-  mainUser = "batman";
+  mainUser = "superman";
 
   constructor(private movServ: MovinstagramService) {}
 
@@ -76,5 +76,9 @@ export class AppComponent implements OnInit {
     let comments: Comment[] = [];
     comments = this.comments.filter((element) => element.postId == postId);
     return comments;
+  }
+
+  getPostId(index) {
+    return this.posts[index].id;
   }
 }

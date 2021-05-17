@@ -26,6 +26,7 @@
             class="user-select"
             *ngFor="let user of users; let i = index"
             (click)="changeUser(user)"
+            [ngClass]="{ activeUser: user == mainUser }"
           >
             <img class="profile-pic" [src]="getProfilePic(user)" />
             <div>
@@ -42,7 +43,7 @@
     [title]="post.title"
     [user]="post.user"
     [picture]="post.picture"
-    [postId]="post.Id"
+    [postId]="getPostId(i)"
     [currentUser]="mainUser"
     [comments]="getPostComments(post.id)"
     [likes]="getPostLikes(post.id)"
